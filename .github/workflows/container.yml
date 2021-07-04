@@ -1,0 +1,23 @@
+name: deploy_conatiners
+on:
+ push:
+  branches:
+    - main
+  paths:
+    - 'packages/container/**'
+
+defaults:
+  run:
+    working-directory:packages/container
+
+jobs:
+  build:
+    runs-on:ubuntu-latest
+
+steps:
+  -users:actions/checkout@v2
+  -run:npm install
+  -run:npm run build
+
+  -usrs:chrislemon/action-aws-cli@v1.1
+  -run:aws s3 syn
