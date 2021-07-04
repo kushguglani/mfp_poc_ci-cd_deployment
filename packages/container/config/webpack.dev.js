@@ -20,7 +20,7 @@ const devConfig = {
 		new ModuleFederationPlugin({
 			name: 'conatiner',
 			remotes: {
-				marketingApp: 'marketing@http://localhost:8081/remoteEntry.js'
+				marketing: 'marketing@http://localhost:8081/remoteEntry.js'
 			},
 			// shared:['react','react-dom'],
 			shared: packageJson.dependencies

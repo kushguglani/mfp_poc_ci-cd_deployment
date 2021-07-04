@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { mount } from 'marketingApp/marketing';
+import { mount } from 'marketing/marketing';
 
 export default () => {
 	const marketRef = useRef(null);
