@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 export default ()=>{
-	// const count = useRef({value:0});
+	// const count = useRef({value:0})
 	const count = useRef(0);
 	const increment =()=>{
 		count.current++;
