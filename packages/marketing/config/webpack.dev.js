@@ -20,7 +20,7 @@ const devConfig = {
 			name: 'marketing',
 			filename: 'remoteEntry.js',
 			exposes: {
-				'./marketing': './src/bootstrap'
+				'./MarketingApp': './src/bootstrap'
 			},
 			// shared:['react','react-dom'], or one hack
 			shared: packageJson.dependencies
