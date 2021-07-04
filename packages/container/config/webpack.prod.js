@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const { merge } = require('webpack-merge');
 
@@ -13,9 +12,6 @@ const prodConfig = {
 		publicPath: '/container/latest/'
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: './public/index.html',
-		}),
 		new ModuleFederationPlugin({
 			name: 'conatiner',
 			remotes: {
