@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const domain = process.env.PRODUCTION_DOMAIN;
 
@@ -12,6 +13,9 @@ const prodConfig = {
 		publicPath: '/container/latest/',
 	},
 	plugins: [
+		new HtmlWebpackPlugin({
+			template: './public/index.html',
+		}),
 		new ModuleFederationPlugin({
 			name: 'container',
 			remotes: {
