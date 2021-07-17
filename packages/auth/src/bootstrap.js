@@ -6,12 +6,12 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 
 console.log(process.env.NODE_ENV);
 
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
 	const memoryHistory = defaultHistory || createMemoryHistory({
-		initialEntries:[initialPath]
+		initialEntries: [initialPath]
 	});
 	onNavigate && memoryHistory.listen(onNavigate);
-	ReactDom.render(<App memoryHistory={memoryHistory} />, el)
+	ReactDom.render(<App memoryHistory={memoryHistory} onSignIn={onSignIn} />, el)
 
 	return {
 		onParentNavigate(location) {
@@ -24,8 +24,8 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 	}
 };
 if (process.env.NODE_ENV === "development") {
-	const el = document.getElementById('_marketing-root');
-	if (el) mount(el, { defaultHistory: createBrowserHistory()});
+	const el = document.getElementById('_auth-dev-root');
+	if (el) mount(el, { defaultHistory: createBrowserHistory() });
 }
 
 export { mount };
