@@ -7,21 +7,24 @@ const packageJson = require('../package.json')
 const devConfig = {
 	mode: 'development',
 	output: {
-		publicPath: 'http://localhost:8081/'
+		publicPath: 'http://localhost:8083/'
 	},
 	devServer: {
-		port: 8081,
-		historyApiFallback: true
+		port: 8083,
+		historyApiFallback:true,
+		headers:{
+			'Acces-Control-Allow-Origin':'*'
+		}
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './public/index.html'
 		}),
 		new ModuleFederationPlugin({
-			name: 'marketing',
+			name: 'dashboard',
 			filename: 'remoteEntry.js',
 			exposes: {
-				'./MarketingApp': './src/bootstrap'
+				'./DashboardApp': './src/bootstrap'
 			},
 			// shared:['react','react-dom'], or one hack
 			shared: packageJson.dependencies
